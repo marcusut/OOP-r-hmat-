@@ -8,6 +8,6 @@ ajalimiidiga gamemode, kui aega üle võib teisi gamemodesid ka teha(limited tri
 
 kasutatud tähed kaovad, genereeritakse uued juurde, et oleks olemas alati miinimumarv tähti
 
-mäng kontrollib, kas tähtedest saab moodustada sõnu, kui ei saa, annab tähti juurde, kuni saab
+mäng kontrollib pidevalt, kas tähtedest saab moodustada sõnu, kui ei saa, annab tähti juurde, kuni saab
 
-kui mängijale näib, et ei saa ikkagi tema arust sõna moodustada tema klotsidest, siis võiks mingi "switch letters, pass a move" valik olla seal, nii et mängija saaks täheklotsid vahetada uute vastu
+kui mängijale näib, et ei saa ikkagi tema arust sõna moodustada tema klotsidest, siis võiks mingi "switch letters", "add letters", "choose a letter" või "pass a move" valik olla seal, nii et mängija saaks täheklotsid vahetada uute vastu
