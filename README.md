@@ -4,7 +4,7 @@
 
 lemmad.txt'd sisse lugedes teeb kõik suured tähed väikesteks, eraldab sõnad massiivi split'iga mille argumendiks oleks reavahetus, ehk '%n' vist.
 
-ajalimiidiga gamemode, hiljem võib teha muid asju ka
+ajalimiidiga gamemode, kui aega üle võib teisi gamemodesid ka teha(limited tries, score based on word length, free mode)
 
 kasutatud tähed kaovad, genereeritakse uued juurde, et oleks olemas alati miinimumarv tähti
 
