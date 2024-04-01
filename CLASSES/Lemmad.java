@@ -4,7 +4,7 @@ class Lemmad {
     void loefailist(String failinimi) {
         try {
             File fail = new File(failinimi);
-            Scanner scanner = new Scanner(fail);
+            Scanner scanner = new Scanner(fail, "windows-1252");
             while (scanner.hasNextLine()) {
                 String lemma = scanner.nextLine();
                 lemmad.add(lemma);
