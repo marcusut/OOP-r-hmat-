@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class EndlessMode extends Mäng {
     public EndlessMode() {
         super();
