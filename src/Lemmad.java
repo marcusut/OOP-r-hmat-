@@ -1,14 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 class Lemmad {
-    Set<String> lemmad = new HashSet<>();
+    Map<String, String> lemmad = new HashMap<>();
 
-    public Lemmad(String failinimi) {
-        loefailist(failinimi);
+    public Lemmad() {
+        loefailist("ASSETS/lemmad.txt");
     }
 
     void loefailist(String failinimi) {
@@ -17,7 +17,7 @@ class Lemmad {
             Scanner scanner = new Scanner(fail, "windows-1252");
             while (scanner.hasNextLine()) {
                 String lemma = scanner.nextLine();
-                lemmad.add(lemma);
+                lemmad.put(lemma.toLowerCase(), lemma);
             }
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -26,6 +26,14 @@ class Lemmad {
     }
 
     boolean sõnaEksisteerib(String lemma) {
-        return lemmad.contains(lemma);
+        return lemmad.containsKey(lemma.toLowerCase());
+    }
+
+    String getSõnaOriginaalVorm(String lemma) {
+        return lemmad.get(lemma.toLowerCase());
+    }
+
+    void eemaldaSõna(String sõna) {
+        lemmad.remove(sõna.toLowerCase());
     }
 }
