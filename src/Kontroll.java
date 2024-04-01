@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Kontroll {
     List<String> genereeriKombinatsioonid(String tähed) {
         List<String> kombinatsioonid = new ArrayList<>();

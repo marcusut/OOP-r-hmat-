@@ -1,5 +1,15 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 class Lemmad {
     Set<String> lemmad = new HashSet<>();
+
+    public Lemmad(String failinimi) {
+        loefailist(failinimi);
+    }
 
     void loefailist(String failinimi) {
         try {
