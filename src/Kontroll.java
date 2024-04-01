@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Kontroll {
+    Lemmad lemmad;
+
+    public Kontroll() {
+        this.lemmad = new Lemmad();
+    }
+
     List<String> genereeriKombinatsioonid(String tähed) {
         List<String> kombinatsioonid = new ArrayList<>();
         boolean[] kasutatud = new boolean[tähed.length()];
@@ -20,5 +26,15 @@ class Kontroll {
                 kasutatud[i] = false;
             }
         }
+    }
+
+    boolean saabTehaSõna(String tähed) {
+        List<String> kombinatsioonid = genereeriKombinatsioonid(tähed);
+        for (String kombinatsioon : kombinatsioonid) {
+            if (lemmad.sõnaEksisteerib(kombinatsioon)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

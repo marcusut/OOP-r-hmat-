@@ -23,8 +23,19 @@ class TimeAttack extends Mäng {
     }
 
     @Override
-    void mängijaArvab(String sõna, String tähed) {
-        int vanaAeg = aeg;
+    boolean mängijaArvab(String sõna, String tähed) {
+        if (sõna.equalsIgnoreCase("quit")) {
+            System.exit(0);
+        }
+        if (sõna.equalsIgnoreCase("restart")) {
+            lõpetaMäng();
+            return false;
+        }
+        if (!sõnaOnMoodustatudPakutudTähtedest(sõna, tähed)) {
+            System.out.println("Sõna ei saa moodustada pakutud tähtedest. Proovi uuesti.");
+            return false;
+        }
+        int vanaAeg = aeg; // Määrame vanaAeg muutuja väärtuse enne sõna arvamist
         if (arvaSõna(sõna)) {
             System.out.println("Õige sõna!");
             aeg += 5; // iga õige sõna lisab 5 sekundit
@@ -35,7 +46,10 @@ class TimeAttack extends Mäng {
         int ajaMuutus = aeg - vanaAeg;
         System.out.println("Aega " + (ajaMuutus > 0 ? "juurde: " : "maha: ") + Math.abs(ajaMuutus) + " sekundit.");
         System.out.println("Alles on " + aeg + " sekundit.");
+        return ajaMuutus > 0;
     }
+
+
 
     @Override
     void lõpetaMäng() {
