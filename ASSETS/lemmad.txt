@@ -72141,6 +72141,7 @@ räsamisðabloon
 räsas
 räsasjalad
 räsasjalgne
+räsi
 räsima
 rässakas
 rässakus

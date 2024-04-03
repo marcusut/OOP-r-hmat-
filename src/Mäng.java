@@ -4,16 +4,18 @@ class Mäng {
     Lemmad lemmad;
     Kontroll kontroll;
     List<String> arvatudSõnad;
+    String tähed;
 
     public Mäng() {
         this.lemmad = new Lemmad();
         this.kontroll = new Kontroll();
         this.arvatudSõnad = new ArrayList<>();
+        this.tähed = "";
     }
 
     void mänguTsükkel() {
         Scanner scanner = new Scanner(System.in);
-        String tähed = genereeriTähed();
+        tähed = genereeriTähed();
         while (!kontroll.saabTehaSõna(tähed)) {
             tähed = genereeriTähed();
         }
@@ -74,7 +76,8 @@ class Mäng {
             if (mäng == null) {
                 break;
             }
-            System.out.println("Mängu saab lõpetada, sisestades 'quit', või alustada uuesti sisestades 'restart'");
+            System.out.println("Mängu saab sulgeda, sisestades 'quit', mängu lõpetamiseks ja menüüsse naasmiseks, sisesta 'menüüsse'");
+            System.out.println("Uue tähe saamiseks sisesta '+'");
             mäng.mänguTsükkel();
         }
     }
@@ -112,10 +115,14 @@ class Mäng {
         if (sõna.equalsIgnoreCase("quit")) {
             System.exit(0);
         }
-        if (sõna.equalsIgnoreCase("restart")) {
+        if (sõna.equalsIgnoreCase("menüüsse")) {
             lõpetaMäng();
             return false;
         }
+        if (sõna.equalsIgnoreCase("+")) {
+            this.tähed += genereeriÜksTäht();
+            return false;
+            }
         if (!sõnaOnMoodustatudPakutudTähtedest(sõna, tähed)) {
             System.out.println("Sõna ei saa moodustada pakutud tähtedest. Proovi uuesti.");
             return false;
@@ -144,7 +151,6 @@ class Mäng {
             System.out.println(sõna);
         }
         mängAktiivne = false;
-        alustaMäng();
     }
 
     String genereeriTähed() {
