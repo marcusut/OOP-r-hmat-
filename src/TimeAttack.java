@@ -55,13 +55,4 @@ class TimeAttack extends Mäng {
         System.out.println("Alles on " + aeg + " sekundit.");
         return ajaMuutus > 0;
     }
-
-
-
-    @Override
-    void lõpetaMäng() {
-        if (aeg <= 0) {
-            super.lõpetaMäng();
-        }
-    }
 }
