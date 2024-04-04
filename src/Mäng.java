@@ -161,11 +161,11 @@ class Mäng {
         StringBuilder genereeritudTähed = new StringBuilder();
         for (int i = 0; i < 7; i++) {
             int valik = rand.nextInt(100);
-            if (valik < 75) {
+            if (valik < 74) {
                 // 75% tõenäosusega valime tavalise tähe
                 int indeks = rand.nextInt(tähed.length());
                 genereeritudTähed.append(tähed.charAt(indeks));
-            } else if (valik < 95) {
+            } else if (valik < 94) {
                 // 20% tõenäosusega valime haruldase tähe
                 int indeks = rand.nextInt(haruldasedTähed.length());
                 genereeritudTähed.append(haruldasedTähed.charAt(indeks));
