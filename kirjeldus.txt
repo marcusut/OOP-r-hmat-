@@ -54,10 +54,11 @@ Autorid: Marcus-Imre Tikerpe, Heidi Hein
 
 - Rühmaliikmete panus:
     Marcus - ~5h esimese korraga, hiljem bug-fixid umbes 2h.
-    Heidi - umbes 2h. Tegin viimased fixid ja toimetasin mõned failid keeleliselt veel üle.
+    Heidi - umbes 2h. Tõstsin klassist Mäng osad jupid välja eraldi klassidesse ja tegin viimased parandused-täiendused.
 
 - Bug, millega hakkama ei saanud, on see, et kui Aeg mängurežiimis saab mäng läbi, see ei lähe kohe mängu peamenüüsse, vaid kasutaja peab enne midagi sisestama. Endless režiimis on see korras.
 
-- Hästi hakkama saadud, aga Mäng klassis on liiga palju meetodeid, oleks võinud rohkem klasse teha ja ümber hajutada, kuid see oleks natuke mahukas.
+- Hästi hakkama saadud!
+	
 
 - Testimine: Mängisin seda lihtsalt.
