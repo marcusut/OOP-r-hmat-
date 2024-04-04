@@ -55,6 +55,10 @@ TimeAttack klassi meetodid:
 
 - tegemise protsess Kõik sai korraga tehtud. Hiljem nipet-näpet bug-fixid.
 
+- Rühmaliikmete panus:
+    Marcus - ~5h esimese korraga plus hiljem bug-fixid umbes 2h.
+    Heidi - *Heidi sisestada*
+
 - Bug, millega hakkama ei saanud on see, et kui Aeg mängurežiimis saab mäng läbi, see ei lähe kohe mängu main menu'sse, vaid kasutaja peab enne midagi sisestama. Endless režiimis on see korras.
 
 - Hästi hakkama saadud aga Mäng klassis on liiga palju meetodeid, oleks võinud rohkem klasse teha ja ümber hajutada, kuid see oleks natuke mahukas.
