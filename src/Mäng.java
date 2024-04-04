@@ -37,11 +37,11 @@ class Mäng {
         String vägaHaruldasedTähed = "cqšzžwxy";
         Random rand = new Random();
         int valik = rand.nextInt(100);
-        if (valik < 75) {
+        if (valik < 74) {
             // 75% tõenäosusega valime tavalise tähe
             int indeks = rand.nextInt(tähed.length());
             return String.valueOf(tähed.charAt(indeks));
-        } else if (valik < 95) {
+        } else if (valik < 94) {
             // 20% tõenäosusega valime haruldase tähe
             int indeks = rand.nextInt(haruldasedTähed.length());
             return String.valueOf(haruldasedTähed.charAt(indeks));
