@@ -54,7 +54,7 @@ TimeAttack klassi meetodid:
 	timeAttack(): alustab mängu time attack režiimis koos tutvustusega ja paneb käima aja;
 	@Override mängijaArvab(): muudetud meetod Mäng klassi mängijaArvab() meetodist, et see arvestaks aja juurde andmise ma maha võtmisega;
 
-- tegemise protsess Kõik sai korraga tehtud. Hiljem nipet-näpet bug-fixid.
+- Tegemise protsess: Kõik sai korraga tehtud. Hiljem nipet-näpet bug-fixid.
 
 - Rühmaliikmete panus:
     Marcus - ~5h esimese korraga plus hiljem bug-fixid umbes 2h.
@@ -64,4 +64,4 @@ TimeAttack klassi meetodid:
 
 - Hästi hakkama saadud aga Mäng klassis on liiga palju meetodeid, oleks võinud rohkem klasse teha ja ümber hajutada, kuid see oleks natuke mahukas.
 
-- Mängisin seda lihtsalt.
+- Testimine: Mängisin seda lihtsalt.
