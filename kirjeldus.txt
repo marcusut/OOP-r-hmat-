@@ -4,7 +4,8 @@ Autorid: Marcus-Imre Tikerpe, Heidi Hein
 
 - Projekti kirjeldus: README.md
 
-- Klasside tutvustused
+- Klasside tutvustused:
+
 Main
 	Peaklass
 Main klassi meetodid:
