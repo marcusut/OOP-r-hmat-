@@ -32,9 +32,9 @@ class Mäng {
     }
 
     String genereeriÜksTäht() {
-        String tähed = "abdeghijklmnoprsztuv";
+        String tähed = "abdeghijklmnoprstuv";
         String haruldasedTähed = "fõäöü";
-        String vägaHaruldasedTähed = "cqšžwxy";
+        String vägaHaruldasedTähed = "cqšzžwxy";
         Random rand = new Random();
         int valik = rand.nextInt(100);
         if (valik < 75) {
@@ -154,9 +154,9 @@ class Mäng {
     }
 
     String genereeriTähed() {
-        String tähed = "abdeghijklmnoprsztuv";
+        String tähed = "abdeghijklmnoprstuv";
         String haruldasedTähed = "fõäöü";
-        String vägaHaruldasedTähed = "cqšžwxy";
+        String vägaHaruldasedTähed = "cqšzžwxy";
         Random rand = new Random();
         StringBuilder genereeritudTähed = new StringBuilder();
         for (int i = 0; i < 7; i++) {
