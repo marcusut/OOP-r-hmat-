@@ -53,6 +53,23 @@ class Mäng {
     }
 
 
+
+    boolean sõnaOnMoodustatudPakutudTähtedest(String sõna, String tähed) {
+        Map<Character, Integer> tähedKaart = new HashMap<>();
+        for (char c : tähed.toCharArray()) {
+            tähedKaart.put(c, tähedKaart.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : sõna.toCharArray()) {
+            if (!tähedKaart.containsKey(c) || tähedKaart.get(c) == 0) {
+                return false;
+            }
+            tähedKaart.put(c, tähedKaart.get(c) - 1);
+        }
+        return true;
+    }
+
+
     static void alustaMäng() {
         while (true) {
             Mäng mäng = valiMängutüüp();
@@ -83,31 +100,83 @@ class Mäng {
         }
     }
 
-    boolean mängAktiivne = true;
+    // kui sõna on õieti ära arvatud, siis lisame selle arvatudSõnad listi
+    boolean arvaSõna(String sõna) {
+        sõna = sõna.toLowerCase();
+        if (lemmad.sõnaEksisteerib(sõna)) {
+            arvatudSõnad.add(lemmad.getSõnaOriginaalVorm(sõna));
+            lemmad.eemaldaSõna(sõna);
+            return true;
+        }
+        return false;
+    }
 
-    String genereeriTähed() {
-    String tähed = "abdeghijklmnoprstuv";
-    String haruldasedTähed = "fõäöü";
-    String vägaHaruldasedTähed = "cqšzžwxy";
-    Random rand = new Random();
-    StringBuilder genereeritudTähed = new StringBuilder();
-    for (int i = 0; i < 7; i++) {
-        int valik = rand.nextInt(100);
-        if (valik < 74) {
-            // 75% tõenäosusega valime tavalise tähe
-            int indeks = rand.nextInt(tähed.length());
-            genereeritudTähed.append(tähed.charAt(indeks));
-        } else if (valik < 94) {
-            // 20% tõenäosusega valime haruldase tähe
-            int indeks = rand.nextInt(haruldasedTähed.length());
-            genereeritudTähed.append(haruldasedTähed.charAt(indeks));
+    boolean mängijaArvab(String sõna, String tähed) {
+        if (sõna.equalsIgnoreCase("quit")) {
+            System.exit(0);
+        }
+        if (sõna.equalsIgnoreCase("menüüsse")) {
+            lõpetaMäng();
+            return false;
+        }
+        if (sõna.equalsIgnoreCase("+")) {
+            this.tähed += genereeriÜksTäht();
+            return false;
+            }
+        if (!sõnaOnMoodustatudPakutudTähtedest(sõna, tähed)) {
+            System.out.println("Sõna ei saa moodustada pakutud tähtedest. Proovi uuesti.");
+            return false;
+        }
+        if (arvaSõna(sõna)) {
+            System.out.println("Õige sõna!");
+            return true;
         } else {
-            // 5% tõenäosusega valime väga haruldase tähe
-            int indeks = rand.nextInt(vägaHaruldasedTähed.length());
-            genereeritudTähed.append(vägaHaruldasedTähed.charAt(indeks));
+            System.out.println("Vale sõna. Proovi uuesti.");
+            return false;
         }
     }
+
+    String eemaldaKasutatudTähed(String sõna, String tähed) {
+        for (char c : sõna.toCharArray()) {
+            tähed = tähed.replaceFirst(String.valueOf(c), "");
+        }
+        return tähed;
+    }
+
+    boolean mängAktiivne = true;
+
+    void lõpetaMäng() {
+        System.out.println("Mäng on läbi! Teie arvatud sõnad olid:");
+        for (String sõna : arvatudSõnad) {
+            System.out.println(sõna);
+        }
+        mängAktiivne = false;
+    }
+
+    String genereeriTähed() {
+        String tähed = "abdeghijklmnoprstuv";
+        String haruldasedTähed = "fõäöü";
+        String vägaHaruldasedTähed = "cqšzžwxy";
+        Random rand = new Random();
+        StringBuilder genereeritudTähed = new StringBuilder();
+        for (int i = 0; i < 7; i++) {
+            int valik = rand.nextInt(100);
+            if (valik < 74) {
+                // 75% tõenäosusega valime tavalise tähe
+                int indeks = rand.nextInt(tähed.length());
+                genereeritudTähed.append(tähed.charAt(indeks));
+            } else if (valik < 94) {
+                // 20% tõenäosusega valime haruldase tähe
+                int indeks = rand.nextInt(haruldasedTähed.length());
+                genereeritudTähed.append(haruldasedTähed.charAt(indeks));
+            } else {
+                // 5% tõenäosusega valime väga haruldase tähe
+                int indeks = rand.nextInt(vägaHaruldasedTähed.length());
+                genereeritudTähed.append(vägaHaruldasedTähed.charAt(indeks));
+            }
+        }
         return genereeritudTähed.toString();
     }
 
 }
+
