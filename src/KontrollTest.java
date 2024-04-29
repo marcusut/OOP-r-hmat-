@@ -8,7 +8,7 @@ public class KontrollTest {
         Kontroll kontroll = new Kontroll();
         Lemmad lemmad = new Lemmad();
 
-        String tähed = "mjsblpkpt"; // Sisestage siia tähed, millest soovite sõna moodustada
+        String tähed = "symitga"; // Sisestage siia tähed, millest soovite sõna moodustada
 
         List<String> kombinatsioonid = kontroll.genereeriKombinatsioonid(tähed);
         for (String kombinatsioon : kombinatsioonid) {

@@ -26,33 +26,18 @@ class TimeAttack extends Mäng {
 
     @Override
     boolean mängijaArvab(String sõna, String tähed) {
-        if (!super.mängAktiivne) {
-            return false;
-        }
-        if (sõna.equalsIgnoreCase("quit")) {
-            System.exit(0);
-        }
-        if (sõna.equalsIgnoreCase("menüüsse")) {
-            super.lõpetaMäng();
-            return false;
-        }
         int vanaAeg = aeg; // Määrame vanaAeg muutuja väärtuse enne sõna arvamist
-        if (arvaSõna(sõna) && sõnaOnMoodustatudPakutudTähtedest(sõna, tähed)) {
-            System.out.println("Õige sõna!");
-            aeg += 5; // iga õige sõna lisab 5 sekundit
-        } else if (sõna.equalsIgnoreCase("+")) {
-            super.tähed += genereeriÜksTäht();
+        boolean result = super.mängijaArvab(sõna, tähed);
+        if (sõna.equalsIgnoreCase("+")) {
             aeg -= 1; // iga uue tähe küsimine võtab maha sekundi
-        } else if (!sõnaOnMoodustatudPakutudTähtedest(sõna, tähed)) {
-            System.out.println("Sõna ei saa moodustada pakutud tähtedest. Proovi uuesti.");
-            aeg -= 5;
+        } else if (result) {
+            aeg += 5; // iga õige sõna lisab 5 sekundit
         } else {
-            System.out.println("Vale sõna. Proovi uuesti.");
             aeg -= 5; // iga vale sõna vähendab aega 5 sekundi võrra
         }
         int ajaMuutus = aeg - vanaAeg;
         System.out.println("Aega " + (ajaMuutus > 0 ? "juurde: " : "maha: ") + Math.abs(ajaMuutus) + " sekundit.");
         System.out.println("Alles on " + aeg + " sekundit.");
-        return ajaMuutus > 0;
+        return result;
     }
 }
